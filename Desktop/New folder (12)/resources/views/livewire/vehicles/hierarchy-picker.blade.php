@@ -1,0 +1,7 @@
+<div class="grid gap-3 md:grid-cols-5">
+    <label class="text-sm font-medium">سازنده<select wire:model.live="makeId" class="mt-1 w-full rounded-lg border-slate-200"><option value="">انتخاب کنید</option>@foreach($makes as $item)<option value="{{ $item->id }}">{{ $item->name }}</option>@endforeach</select></label>
+    <label class="text-sm font-medium">مدل<select wire:model.live="modelId" @disabled(!$makeId) class="mt-1 w-full rounded-lg border-slate-200"><option value="">انتخاب کنید</option>@foreach($models as $item)<option value="{{ $item->id }}">{{ $item->name }}</option>@endforeach</select></label>
+    <label class="text-sm font-medium">نسل<select wire:model.live="generationId" @disabled(!$modelId) class="mt-1 w-full rounded-lg border-slate-200"><option value="">انتخاب کنید</option>@foreach($generations as $item)<option value="{{ $item->id }}">{{ $item->name }}</option>@endforeach</select></label>
+    <label class="text-sm font-medium">موتور<select wire:model.live="engineId" class="mt-1 w-full rounded-lg border-slate-200"><option value="">اختیاری</option>@foreach($engines as $item)<option value="{{ $item->id }}">{{ $item->name }}{{ $item->code ? ' — '.$item->code : '' }}</option>@endforeach</select></label>
+    <label class="text-sm font-medium">گیربکس<select wire:model.live="transmissionId" class="mt-1 w-full rounded-lg border-slate-200"><option value="">اختیاری</option>@foreach($transmissions as $item)<option value="{{ $item->id }}">{{ $item->name }}{{ $item->code ? ' — '.$item->code : '' }}</option>@endforeach</select></label>
+</div>
